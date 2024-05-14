@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+    :root {
+        --header-row-height: 44px;
+        --mobile-nav-height: 48px;
+        --header-height: calc(var(--header-row-height) * 2);
+        --hero-height: calc(100svh - var(--header-height));
+    }
+}
+
+@layer components {
+    @keyframes shimmer {
+        0% {
+            background-position: -200%;
+        }
+        100% {
+            background-position: 200%;
+        }
+    }
+    
+    .animate-shimmer {
+        animation: shimmer 2s linear infinite;
+        background: linear-gradient(90deg, rgba(240, 240, 240, 0.551) 5%, rgba(111, 111, 111, 0.5) 15%, rgba(240, 240, 240, 0.175) 30%);
+        background-size: 400% 100%;
+    }
+}
