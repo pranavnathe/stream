@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Button, Input } from "./index"
+import { toast } from "react-toastify"
 
 export const UpdatePasswordModel = ({ isOpen, onClose, onUpdate }) => {
 
@@ -10,6 +11,9 @@ export const UpdatePasswordModel = ({ isOpen, onClose, onUpdate }) => {
 
     const handleUpdate = (event) => {
         event.preventDefault(); // Prevent default form submission behavior
+        if (!(oldPassword && newPassword)) {
+            return toast.error("both fields are required")
+        } 
         onUpdate({oldPassword, newPassword});
     };
 

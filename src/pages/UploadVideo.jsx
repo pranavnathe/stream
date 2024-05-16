@@ -15,6 +15,11 @@ function UploadVideo() {
 
     const handleSubmit = async (event) => {
       event.preventDefault(); // Prevent default form submission behavior
+
+      if (!(title && description && thumbnailFile && videoFile)) {
+        return toast.error("All fields are required")
+      }
+
       const toastId = toast.loading("uploading..." , {className:"border-2 border-black dark:border-slate-500"})
 
       // Construct form data object
