@@ -9,7 +9,7 @@ export const Button = ({children, size = "medium", className, isActive, ...props
     
     return (
         <button className={twMerge(
-            "border border-grey2 dark:border-white dark:bg-backgroundContrast dark:text-white bg-white text-textBlack rounded-full hover:dark:bg-grey1 hover:dark:border-loginBlue", 
+            "border border-grey2 dark:border-white dark:bg-backgroundContrast dark:text-white bg-white text-textBlack rounded-full hover:dark:bg-grey1 hover:border-blue-600 hover:dark:border-blue-600", 
             sizeClassNames[size],
             className,
             isActive && "dark:bg-white dark:text-black"

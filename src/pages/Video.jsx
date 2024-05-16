@@ -106,7 +106,10 @@ function Video() {
     .catch((error) => {
       console.error('Error fetching video:', error)
     })
-    .finally(() => setLoading(false))
+    .finally(() => {
+      setLoading(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' }) // scroll to top of the page
+    })
   }, [decodedVideoId, isSubscribed, isLiked, owner, videoId])
 
   return (

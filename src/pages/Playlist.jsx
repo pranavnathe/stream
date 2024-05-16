@@ -44,8 +44,8 @@ function Playlist() {
     playlistService.deletePlaylist(id)
     .then((res) => {
       toast.update(toastId, { render: `${res.message}`, type: "success", isLoading: false, autoClose: 2000 })
+      setRefresh(!refresh)
     })
-    .then(() => setRefresh(!refresh))
     .catch((err) => toast.update(toastId, { render: err, type: "error", isLoading: false, autoClose: 2000 }))
     setShowConfirmModal(false)
   }

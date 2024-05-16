@@ -108,7 +108,7 @@ function Dashboard() {
                     </Button>
                     <Button 
                     onClick={() => setIsSlected(false)}
-                    className={`w-full rounded-lg ${!isSelected ? "border-2" : "border-none"}`}
+                    className={`w-full rounded-lg bg-neutral-100 ${!isSelected ? "border-2" : "border-none"}`}
                     >
                         All Videos
                     </Button>
@@ -116,15 +116,15 @@ function Dashboard() {
                 {
                 isSelected && 
                 <div className='w-full m-2 grid grid-cols-2 gap-3 sm:grid-cols-3'>
-                    <div className='h-40 flex flex-col justify-center items-center rounded-xl bg-neutral-800'>
+                    <div className='h-40 flex flex-col justify-center items-center rounded-xl bg-neutral-200 dark:bg-neutral-800'>
                         <span className='text-2xl font-bold'>{formatViewCount(dashboardData.totalChannelsViews)}</span>
                         <p className='text-base'>views</p>
                     </div>
-                    <div className='h-40 flex flex-col justify-center items-center rounded-xl bg-neutral-800'>
+                    <div className='h-40 flex flex-col justify-center items-center rounded-xl bg-neutral-200 dark:bg-neutral-800'>
                         <span className='text-2xl font-bold'>{dashboardData.totalSubscribersCount}</span>
                         <p className='text-base'>subscribers</p>
                     </div>
-                    <div className='h-40 flex flex-col justify-center items-center rounded-xl bg-neutral-800'>
+                    <div className='h-40 flex flex-col justify-center items-center rounded-xl bg-neutral-200 dark:bg-neutral-800'>
                         <span className='text-2xl font-bold'>{dashboardData.totalVideoCount}</span>
                         <p className='text-base'>videos</p>
                     </div>
