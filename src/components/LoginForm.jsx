@@ -10,21 +10,26 @@ export const LoginForm = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [loading, setloading] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const handleSubmit = async (event) => {
+        setloading(true)
         event.preventDefault();
 
         // Validate input fields
         if (!email.trim()) {
+            setloading(false)
             return toast.error("Email is required");
         }
         if (!password.trim()) {
+            setloading(false)
             return toast.error("Password is required");
         }
         const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
         if (!gmailRegex.test(email.toLowerCase())) {
+            setloading(false)
             return toast.error("Enter a valid Gmail address");
         }
 
@@ -35,16 +40,23 @@ export const LoginForm = () => {
                     const user = userData.data.user
                     dispatch(login({userData: user}))
                     toast.success(`Welcome ${user.username}`)
+                    setloading(false)
                 } else {
                     dispatch(logout())
+                    setloading(false)
                 }
             })
             .then(() => {
                 navigate("/home")
                 // window.location.reload(); // Reload the page
             })
-            .catch((error) => toast.error("invalid credentials"))
+            .catch((error) => {
+                toast.error("invalid credentials")
+                setloading(false)
+                console.error("login", error);
+            })
         } catch (error) {
+            setloading(false)
             toast.error(error)
         }
     };
@@ -84,7 +96,7 @@ export const LoginForm = () => {
                     <Button 
                     onClick={handleSubmit} // Handle form submission
                     className="w-full h-12 rounded-lg bg-loginBlue text-white dark:bg-loginBlueDark dark:text-white hover:text-base hover:font-bold ease-in-out"
-                    >Login</Button>
+                    >{loading ? "Logging..." : "Login"}</Button>
                 </div>
             </div>
         </>
