@@ -115,7 +115,7 @@ export const RegisterFrom = () => {
                     </div>
                     <Input 
                     value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
+                    onChange={(e) => setEmail((e.target.value).toLowerCase())} 
                     label="Email" 
                     placeholder="Email"/>
                     <div className="flex items-center w-full relative">

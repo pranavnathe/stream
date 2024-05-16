@@ -12,6 +12,12 @@ export const UpdateAccountForm = ({isOpen, onClose}) => {
     const [showPasswordModal, setShowPasswordModal] = useState(false)
 
     const handleSubmit = async () => {
+        if (email) {
+            const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (!gmailRegex.test(email.toLowerCase())) {
+                return toast.error("Enter a valid Gmail address");
+            }
+        }
         const toastId = toast.loading("updating..." , {className:"border-2"})
         userService.updateAccount({fullName, email})
         .then((response) => {
@@ -63,7 +69,7 @@ export const UpdateAccountForm = ({isOpen, onClose}) => {
                     />
                     <Input 
                     value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
+                    onChange={(e) => setEmail((e.target.value).toLowerCase())} 
                     label="Email" 
                     placeholder="Email"
                     />

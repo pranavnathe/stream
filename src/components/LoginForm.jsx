@@ -72,7 +72,7 @@ export const LoginForm = () => {
                     <p className="pb-3">Already a memeber, easily login</p>
                     <Input 
                     value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
+                    onChange={(e) => setEmail((e.target.value).toLowerCase())} 
                     label="Email" 
                     placeholder="Email"/>
                     <div className="flex items-center w-full relative pb-4">
