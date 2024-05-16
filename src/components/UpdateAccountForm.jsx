@@ -3,6 +3,7 @@ import { Button, Input, UpdatePasswordModel} from "./index"
 import authService from "../services/auth"
 import { toast } from "react-toastify"
 import userService from "../services/user"
+import LogoutButton from "./Header/LogoutButton"
 
 export const UpdateAccountForm = ({isOpen, onClose}) => {
 
@@ -46,7 +47,7 @@ export const UpdateAccountForm = ({isOpen, onClose}) => {
     return (
         <>
         <div
-        className={`fixed inset-0 flex items-center justify-center z-20 backdrop-blur-sm ${
+        className={`fixed inset-0 flex flex-col items-center justify-center z-20 backdrop-blur-sm ${
             isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         } transition-opacity duration-300`}
         >
@@ -68,7 +69,7 @@ export const UpdateAccountForm = ({isOpen, onClose}) => {
                     />
                     <Button
                     onClick={() => setShowPasswordModal(true)}
-                    className="w-full rounded-xl text-white dark:text-white"
+                    className="w-full mt-2 rounded-xl dark:text-white"
                     >
                         Change Password
                     </Button>
@@ -93,6 +94,7 @@ export const UpdateAccountForm = ({isOpen, onClose}) => {
                 onClose={() => setShowPasswordModal(false)}
                 onUpdate={handlePasswordUpdate}
             />
+            <LogoutButton className="md:hidden w-44 h-12 border-2 font-bold text-sm text-red-500 border-red-500 dark:text-red-500 dark:border-red-500"/>
         </div>
         </>
     )

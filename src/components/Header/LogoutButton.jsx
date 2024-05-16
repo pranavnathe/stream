@@ -5,7 +5,7 @@ import { Button } from '../index'
 import authService from '../../services/auth'
 import { useNavigate } from 'react-router-dom'
 
-function LogoutButton() {
+function LogoutButton({className = ""}) {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const logoutHandeler = () => {
@@ -19,7 +19,7 @@ function LogoutButton() {
     return (
         <Button
             size = "small"
-            className="rounded-lg hover:border-red1 hover:dark:border-red1 hover:text-red1 hover:dark:text-red1"
+            className={`rounded-lg hover:border-red-600 hover:dark:border-red-600 hover:text-red-600 hover:dark:text-red-600 ${className}`}
             onClick={logoutHandeler}
         >
             Logout
