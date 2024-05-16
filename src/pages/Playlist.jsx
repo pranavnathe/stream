@@ -105,7 +105,7 @@ function Playlist() {
                   :
                   <div 
                   onClick={() => handleClick(playlist._id)}
-                  className='w-full flex justify-center items-center h-48 object-cover rounded-lg z-[1] bg-neutral-100 dark:bg-neutral-700 bg shadow-2xl cursor-pointer'>
+                  className='min-w-full flex justify-center items-center h-48 object-cover rounded-lg z-[1] bg-neutral-100 dark:bg-neutral-700 bg shadow-2xl cursor-pointer'>
                     <div className='rounded-full flex justify-center items-center font-bold text-4xl w-20 h-20 bg-neutral-200 dark:bg-neutral-800'>
                       !
                     </div>

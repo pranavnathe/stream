@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Input, Textarea} from "./"
+import { toast } from 'react-toastify';
 
 const PlaylistFormModel = ({ isOpen, message, onClose, onCreate, Data }) => {
 
@@ -15,6 +16,10 @@ const PlaylistFormModel = ({ isOpen, message, onClose, onCreate, Data }) => {
 
     const handelSubmit = (event) => {
         event.preventDefault(); // Prevent default form submission behavior
+        if (!Data) {
+            if (!name) return toast.error("Playlist name is required")
+            if (!description) return toast.error("description is required")
+        }
         onCreate({name, description});
     };
 
